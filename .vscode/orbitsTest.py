@@ -2,38 +2,21 @@ import joansLib as c
 import numpy as np
 n = 3 #int(input("n?"))
 e = 1 #int(input("num e?"))
-aList = c.maxEParent(c.minSubStr(n), e)
+aList = c.minSubStr(n)
 
-#for x in mList:
-    #print(x)
-#print()
-#generate an orbit
-#generate mList / orbit
-#generate next orbit from mList / orbit
-#repeat
+checkList = []
+out = []
 
-'''
-j = 0
-for x in c.minSubStr(n):
-    print(x)
-    for y in mList:
-        print(y)
-    j += 1
-i = 0
-while i < len(mList):
-    print(mList[i])
-    print(i)
-    print()
-    i+=1
+for a in aList:
+    if a and c.rev(a) and c.swap0n(a) and c.rev(c.swap0n(a)) not in checkList:
+        checkList += [a]
+        checkList += [c.swap0n(a)]
+        checkList += [c.rev(a)]
+        checkList +=[c.rev(c.swap0n(a))]
+        out += [c.morphChunker(a)]
 
-print("-------CHECKS------")
-
-for x in mList:
-    if x in check:
-        print("!!!")
+ 
+for o in out:
+    for x in c.maxEParent(o, e):
         print(x)
-        print("!!!")
-    check += x
     print()
-
-'''
